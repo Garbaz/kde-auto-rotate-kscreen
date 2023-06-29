@@ -1,8 +1,10 @@
 # KDE Auto Rotate (kscreen version)
 
-This is a heavily modified fork of [kde-auto-rotate](https://github.com/donbowman/kde-auto-rotate/) where I replaced the X-specific commands with `kscreen-*` commands, such that the script works with both X and Wayland.
+Automatically rotates screen based on device orientation. Only works under KDE Plasma, but both with Wayland and X.
 
 Tested on Manjaro with Wayland.
+
+This loosely based upon [kde-auto-rotate](https://github.com/donbowman/kde-auto-rotate/).
 
 ## Dependencies
 
