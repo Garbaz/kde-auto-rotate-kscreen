@@ -4,18 +4,27 @@ This is a heavily modified fork of [kde-auto-rotate](https://github.com/donbowma
 
 Tested on Manjaro Plasma.
 
-## About
+## Requirements
 
-This script allows a convertible tablet to work with KDE for
-auto-rotation. It causes all pointers to also rotate orientation.
+### Ubuntu & co:
 
-It disables itself if there is an external display attached.
+`apt install gawk iio-sensor-proxy`
 
-The install script will setup the systemd and set the path
+### Arch Linux & co:
 
-## Notes
+`pacman -Syu gawk iio-sensor-proxy`
 
-This relies on `gawk` being installed, and `iio-sensor-proxy`.
-You may need:
+## Install
 
-`apt-get install gawk iio-sensor-proxy`
+Clone this repo somewhere permanent and run the `install.sh` script. For example:
+
+```sh
+cd ~/opt
+git clone https://github.com/Garbaz/kde-auto-rotate-kscreen.git
+cd kde-auto-rotate-kscreen
+./install.sh
+```
+
+## Uninstall
+
+Run the `uninstall.sh` script.

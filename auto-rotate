@@ -5,12 +5,12 @@ do
     printf "Accelerometer: %s\n" "$line"
 
     # If we have external monitor connected, do not rotate
-    nscreens=$(kscreen-console outputs | grep -c "^Id:")
-    if [ "$nscreens" != 1 ]
-    then
-        printf "But we have a second screen, so we don't rotate.\n"
-        line=normal
-    fi
+    # nscreens=$(kscreen-console outputs | grep -c "^Id:")
+    # if [ "$nscreens" != 1 ]
+    # then
+    #     printf "But we have a second screen, so we don't rotate.\n"
+    #     line=normal
+    # fi
 
     # Set the actions to be taken for each possible orientation
     case "$line" in

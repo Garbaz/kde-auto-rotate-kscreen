@@ -11,8 +11,8 @@ BindsTo=graphical-session.target
 
 [Service]
 # Environment=DISPLAY=:0
-ExecStartPre=/bin/sleep 10
-ExecStart=/usr/local/bin/auto-rotate
+ExecStartPre=/bin/sleep 5
+ExecStart=/bin/false
 Restart=on-failure
 SuccessExitStatus=3 4
 RestartForceExitStatus=3 4

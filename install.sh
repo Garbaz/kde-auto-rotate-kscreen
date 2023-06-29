@@ -4,10 +4,11 @@
 # copyright 2018 Don Bowman (db@donbowman.ca)
 # Licensed under Apache License, Version 2.0
 
-mkdir -p ~/.config/auto-rotate
-dir=$(dirname "$(readlink -f "$0")")
-mkdir -p ~/.config/systemd/user
-sed -e "s?ExecStart=.*?ExecStart=$dir/auto-rotate?" < auto-rotate.service > ~/.config/systemd/user/auto-rotate.service
-systemctl --user enable auto-rotate
-systemctl --user start auto-rotate
+dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
+mkdir -p ~/.config/systemd/user
+
+sed -e "s?ExecStart=.*?ExecStart=$dir/auto-rotate?" < auto-rotate.service > ~/.config/systemd/user/auto-rotate.service
+
+systemctl --user enable auto-rotate
+systemctl --user restart auto-rotate
