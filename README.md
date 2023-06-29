@@ -1,20 +1,18 @@
-# kde-auto-rotate (kscreen version)
+# KDE Auto Rotate (kscreen version)
 
-Automatically rotates screen based on device orientation. Only works under KDE Plasma.
+This is a heavily modified fork of [kde-auto-rotate](https://github.com/donbowman/kde-auto-rotate/) where I replaced the X-specific commands with `kscreen-*` commands, such that the script works with both X and Wayland.
 
-This is a heavily modified & simplified fork of [kde-auto-rotate](https://github.com/donbowman/kde-auto-rotate/) where I replaced the X-specific commands with `kscreen-*` commands, such that the script works with both X and Wayland.
+Tested on Manjaro with Wayland.
 
-Tested on Manjaro.
-
-## Requirements
+## Dependencies
 
 ### Ubuntu & co:
 
-`apt install gawk iio-sensor-proxy`
+`apt install iio-sensor-proxy`
 
 ### Arch Linux & co:
 
-`pacman -Syu gawk iio-sensor-proxy`
+`pacman -Syu iio-sensor-proxy`
 
 ## Install
 

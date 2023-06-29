@@ -1,8 +1,4 @@
 #!/bin/sh
-#
-# auto-rotate the screen and pointers
-# copyright 2018 Don Bowman (db@donbowman.ca)
-# Licensed under Apache License, Version 2.0
 
 dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
