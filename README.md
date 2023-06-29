@@ -1,11 +1,8 @@
-# kde-auto-rotate
+# kde-auto-rotate (kscreen version)
 
-## NOTE
+This is a heavily modified fork of [kde-auto-rotate](https://github.com/donbowman/kde-auto-rotate/) where I replaced the X-specific commands with `kscreen-*` commands, such that the script works with both X and Wayland.
 
-I no longer use a convertible, so i have not updated this.
-It does still work for many people, so feel free to try.
-If someone wants to fork and maintain, I'm certainly not
-going to stop you :)
+Tested on Manjaro Plasma.
 
 ## About
 
@@ -22,15 +19,3 @@ This relies on `gawk` being installed, and `iio-sensor-proxy`.
 You may need:
 
 `apt-get install gawk iio-sensor-proxy`
-
-## Backdrop
-
-If you wish to have the backdrop change automatically on rotation,
-you can create these 4 files in ~/.config/auto-rotate:
-
-- normal.jpg
-- bottom-up.jpg
-- right-up.jpg
-- left-up.jpg
-
-Make each image be the exact backdrop you want, as a JPEG.
