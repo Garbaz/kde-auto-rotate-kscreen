@@ -1,7 +1,8 @@
 #!/bin/sh
 
-monitor-sensor --accel | sed -n 's| *Accelerometer orientation changed: \(.*\)|\1|p' | while read -r line
+monitor-sensor --accel | sed -n -u 's| *Accelerometer orientation changed: \(.*\)|\1|p' | while read -r line
 do
+    printf "'%s'" "$line"
     ## This doesn't work. `kscreen-console` crashes for me with a core dump -__-
     # If we have external monitor connected, do not rotate
     # nscreens=$(kscreen-console outputs | grep -c "^Id:")
