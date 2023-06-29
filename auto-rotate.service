@@ -10,7 +10,7 @@ Wants=graphical-session-pre.target
 BindsTo=graphical-session.target
 
 [Service]
-Environment=DISPLAY=:0
+# Environment=DISPLAY=:0
 ExecStartPre=/bin/sleep 10
 ExecStart=/usr/local/bin/auto-rotate
 Restart=on-failure

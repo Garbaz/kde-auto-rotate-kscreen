@@ -3,7 +3,6 @@
 # auto-rotate the screen and pointers
 # copyright 2018 Don Bowman (db@donbowman.ca)
 # Licensed under Apache License, Version 2.0
-#
 
 mkdir -p ~/.config/auto-rotate
 dir=$(dirname "$(readlink -f "$0")")
