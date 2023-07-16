@@ -1,31 +1,38 @@
 #!/bin/sh
 
-monitor-sensor --accel | sed -n -u 's| *Accelerometer orientation changed: \(.*\)|\1|p' | while read -r line
-do
-    printf "'%s'" "$line"
-    ## This doesn't work. `kscreen-console` crashes for me with a core dump -__-
-    # If we have external monitor connected, do not rotate
-    # nscreens=$(kscreen-console outputs | grep -c "^Id:")
-    # if [ "$nscreens" != 1 ]
-    # then
-    #     printf "But we have a second screen, so we don't rotate.\n"
-    #     line=normal
-    # fi
+monitor-sensor --accel | sed -n -u 's| *Accelerometer orientation changed: \(.*\)|\1|p' | while read -r orientation; do
+    printf "Orientation: '%s'\n" "$orientation"
 
-    case "$line" in
-        normal)
-            kscreen-doctor output.1.rotation.normal
-            ;;
-        bottom-up)
-            kscreen-doctor output.1.rotation.inverted
-            ;;
-        right-up)
-            kscreen-doctor output.1.rotation.right
-            ;;
-        left-up)
-            kscreen-doctor output.1.rotation.left
-            ;;
-    esac
+    screen=""
+    for l in $(kscreen-doctor -o | sed 's/\x1B\[[0-9;]\{1,\}[A-Za-z]//g' | sed -n 's/Output: \([^ ]*\) [^ ]* enabled.*/\1/p'); do
+        if [ "$screen" = "" ]; then
+            screen="$l"
+        else
+            screen="MULTIPLE"
+        fi
+    done
+
+    printf "Screen: '%s'\n" "$screen"
+
+    if [ "$screen" = "" ]; then
+        printf "Doing nothing because no screen was detected.\n"
+        continue
+    fi
+
+    if [ "$screen" = "MULTIPLE" ]; then
+        printf "Doing nothing because multiple screens were detected.\n"
+        continue
+    fi
+
+    if [ "$orientation" = "bottom-up" ]; then
+        orientation="inverted"
+    elif [ "$orientation" = "right-up" ]; then
+        orientation="right"
+    elif [ "$orientation" = "left-up" ]; then
+        orientation="left"
+    fi
+
+    kscreen-doctor "output.$screen.orientation.$orientation"
 done
 
 exit 0

@@ -2,9 +2,11 @@
 
 Automatically rotates screen based on device orientation. Only works under KDE Plasma, but both with Wayland and X.
 
-Tested on Manjaro with Wayland.
+Rotation is disabled when multiple screens are connected.
 
-This loosely based upon [kde-auto-rotate](https://github.com/donbowman/kde-auto-rotate/).
+Tested on Manjaro with Wayland & X.
+
+This is loosely based upon [kde-auto-rotate](https://github.com/donbowman/kde-auto-rotate/).
 
 ## Dependencies
 
